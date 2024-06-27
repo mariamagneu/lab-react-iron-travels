@@ -1,6 +1,9 @@
 import React from "react";
 
-const DestinationCard = ({ location }) => {
+const DestinationCard = ({ location, handleDelete }) => {
+  const onDelete = () => {
+    handleDelete(location.id); // Call handleDelete with location.id
+  };
   return (
     <div
       className="container"
@@ -39,6 +42,11 @@ const DestinationCard = ({ location }) => {
           )}
         </div>
         {location.totalCost < 350 && <p className="dealLabel">Great Deal</p>}
+      </div>
+      <div>
+        <button type="button" onClick={onDelete}>
+          Delete
+        </button>
       </div>
     </div>
   );
