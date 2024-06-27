@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import travelPlansData from "../assets/travel-plans.json";
-import DestinationCard from "./DestinationCard"; // Import your DestinationCard component
+import DestinationCard from "./DestinationCard";
 
 const TravelList = () => {
   const [travelPlans, setTravelPlans] = useState(travelPlansData);

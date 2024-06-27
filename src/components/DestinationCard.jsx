@@ -5,12 +5,12 @@ const DestinationCard = ({ location }) => {
     <div
       className="container"
       style={{
-        border: "2px solid black",
-        margin: "50px",
+        border: "1px solid black",
+        padding: "1rem",
+        margin: "1rem",
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "20px",
-        padding: "20px",
+        gap: "30px",
+        gridTemplate: "1fr / 1fr 1fr",
       }}
     >
       <div>
@@ -30,6 +30,15 @@ const DestinationCard = ({ location }) => {
         <p>
           <b>Price:</b> {location.totalCost}
         </p>
+        <div>
+          {location.totalCost > 1500 && (
+            <p className="premiumLabel"> Premium</p>
+          )}
+          {location.allInclusive && (
+            <p className="allInclusive"> All Inclusive</p>
+          )}
+        </div>
+        {location.totalCost < 350 && <p className="dealLabel">Great Deal</p>}
       </div>
     </div>
   );
