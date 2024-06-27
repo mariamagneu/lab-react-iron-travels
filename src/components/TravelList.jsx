@@ -1,39 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import travelPlansData from "../assets/travel-plans.json";
+import DestinationCard from "./DestinationCard"; // Import your DestinationCard component
 
 const TravelList = () => {
+  const [travelPlans, setTravelPlans] = useState(travelPlansData);
+
   return (
     <>
-      {travelPlansData.map((location, index) => (
-        <div
-          key={index}
-          className="container"
-          style={{
-            border: "2px solid black",
-            margin: "50px",
-            display: "grid",
-            gridTemplate: "1fr / 1fr 1fr",
-            gap: "20px",
-          }}
-        >
-          <div className="imageContainer">
-            <div>
-              <img src={location.image} style={{ width: "100%" }}></img>
-            </div>
-          </div>
-          <div className="textContainer" style={{ textAlign: "left" }}>
-            <h1>
-              {location.destination} ({location.days} days)
-            </h1>
-            <p>
-              <i>{location.description}</i>
-            </p>
-            <p>
-              {" "}
-              <b>price:</b> {location.totalCost}
-            </p>
-          </div>
-        </div>
+      {travelPlans.map((location, index) => (
+        <DestinationCard key={index} location={location} />
       ))}
     </>
   );
